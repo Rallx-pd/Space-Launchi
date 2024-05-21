@@ -8,7 +8,8 @@
 }
 
 body { 
-
+  display: flex;
+  height: 100vh;
 }
 
 section {
@@ -42,7 +43,7 @@ header .logo {
 }
 
 header .navigation a {
-  color: #000;
+  color:#DAF7A6 ;
   text-decoration: none;
   font-weight: 500;
   letter-spacing: 1px;
@@ -73,6 +74,7 @@ header .navigation a:hover{
   letter-spacing: 2px;
   line-height: 60px;
   margin-bottom: 30px;
+
 }
 
 .content .info h2 span {
@@ -85,10 +87,11 @@ header .navigation a:hover{
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 40px;
+  color: #DAF7A6;
 }
 
 .content .info-btn {
-  color: #fff;
+  color: #DAF7A6;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -101,4 +104,126 @@ header .navigation a:hover{
 
 .content .info-btn:hover {
   background: #581845;
+}
+
+.image {
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  height: 80vh;
+  width: 40%;
+  bottom: 0px;
+  right: 200px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+label {
+  display: none;
+}
+
+#check {
+  z-index: 3;
+  display: none;
+}
+
+/* Responsivo */
+
+@media screen and (max-width: 1300px) {
+  header .navigation {
+    display: none;
+  }
+
+  label {
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: color;
+  }
+
+  label:hover {
+    color: #fff;
+  }
+  
+  label .bi-x-octagon {
+    display: none;
+  }
+
+  #check:checked ~ header .navigation {
+    z-index: 2;
+    position: fixed;
+    background: rgba(88, 24, 69, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #check:checked ~ header .navigation a{
+    font-weight: 700;
+    margin-right: 0;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+  }
+
+  #check:checked ~ header label .bi-list {
+    display: none;
+  }
+
+  #check:checked ~ header label .bi-x-octagon {
+    z-index: 2;
+    display: block;
+    position: fixed;
+  }
+
+  label .bi-list {
+    position: absolute;
+  }
+
+  header .logo {
+    position: absolute;
+    bottom: -6px;
+  }
+
+  .content .info h2 {
+    font-size: 45px;
+    line-height: 50px;
+  }
+
+  .content .info h2 span{
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  .content .info p {
+    font-size: 14px;
+  }
+
+  .image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 560px) {
+
+  .content .info h2 {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .content .info h2 span{
+    font-size: 3cap;
+    font-weight: 600;
+  }
+
+  .content .info p {
+    font-size: 14px;
+  }
 }
